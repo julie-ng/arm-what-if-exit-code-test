@@ -1,0 +1,8 @@
+az deployment sub create \
+  --name armExitCodeTestDeployment \
+  --location westeurope \
+	--template-file ./rg-storage-acct.json \
+  --parameters \
+		rgName=arm-test-rg \
+		storagePrefix=jngarmtest \
+		rgLocation=westeurope
