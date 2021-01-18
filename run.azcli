@@ -7,3 +7,13 @@ az deployment sub create \
     rgName=arm-test-rg \
     storagePrefix=jngarmtest \
     rgLocation=westeurope
+
+# Second Deployment - after manually adjusting tags in Azure Portal
+az deployment sub what-if \
+  --location westeurope \
+  --name armExitCodeTestDeploymentChangedTags \
+  --template-file ./rg-storage-acct.json \
+  --parameters \
+    rgName=arm-test-rg \
+    storagePrefix=jngarmtest \
+    rgLocation=westeurope
