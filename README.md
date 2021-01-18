@@ -6,39 +6,10 @@ Does `what-if` use an exit code so we can automate checking for configuraiton dr
 
 ### Result - Nope
 
-To detect programmatically detect configuration change, you would need to process result output 😕
+- To detect programmatically detect configuration change, you would need to process result output 😕
+- Green means exit code 0. I want a non-zero exit code like Terraform's `-detailed-exitcode` flag
 
-```bash
-$ az deployment sub what-if \
-➜       --location westeurope \
-➜       --name armExitCodeTestDeploymentChangedTags \
-➜       --template-file ./rg-storage-acct.json \
-➜       --parameters \
-➜           rgName=arm-test-rg \
-➜           storagePrefix=armtest \
-➜           rgLocation=westeurope
-Note: The result may contain false positive predictions (noise).
-You can help us improve the accuracy of the result by opening an issue here: https://aka.ms/WhatIfIssues.
-
-Resource and property changes are indicated with these symbols:
-  ~ Modify
-  = Nochange
-
-The deployment will update the following scopes
-
-Scope: /subscriptions/<REDACTED>
-
-  ~ resourceGroups/arm-test-rg [2020-06-01]
-    ~ tags.demo: "false" => "true"
-
-Scope: /subscriptions/<REDACTED>/resourceGroups/arm-test-rg
-
-  = Microsoft.Storage/storageAccounts/armtest<REDACTED> [2019-06-01]
-
-Resource changes: 1 to modify, 1 no change.
-
-arm-test main [!] at took 18s 
-```
+![Exit Code: 0](images/what-if-result.png)
 
 ### References
 
