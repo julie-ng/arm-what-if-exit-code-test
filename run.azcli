@@ -1,8 +1,9 @@
+# Initial Deployment - create new resourcse
 az deployment sub create \
   --name armExitCodeTestDeployment \
   --location westeurope \
-	--template-file ./rg-storage-acct.json \
+  --template-file ./rg-storage-acct.json \
   --parameters \
-		rgName=arm-test-rg \
-		storagePrefix=jngarmtest \
-		rgLocation=westeurope
+    rgName=arm-test-rg \
+    storagePrefix=jngarmtest \
+    rgLocation=westeurope
